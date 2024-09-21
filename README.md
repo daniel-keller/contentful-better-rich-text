@@ -94,5 +94,5 @@ return documentToReactComponents(props.content, {
 * No idea how well the align text feature will work along side RTL languages like Hebrew or Arabic.
 
 ## One more thing
-Contentful's rich text field editor is built on a super outdated version of PlateJS (v30) which contains security vulnerabilities. This package doesn't correct that and is built on the same version of PlateJS. Maybe Contentful will fix this some day? I doubt it since they are pushing high rolers to pay $$$$ for Contentful Studio.
+Contentful's rich text field editor is built on a super outdated version of PlateJS (v30) which contains security vulnerabilities. This package doesn't correct that and is built on the same version of PlateJS. Maybe Contentful will fix this some day? I doubt it since they are investing most dev time into Contentful Studio (which I suspect is waaaay too expensive for most users).
 

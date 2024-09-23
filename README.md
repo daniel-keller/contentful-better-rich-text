@@ -40,14 +40,15 @@ The following changes are stored in the Plate/Slate JSON through new data proper
 * Add saving
 * Add captions to Inline and Embedded Assets
 
-## Setup
+# Setup
 `yarn install` - Contentful's field editors have a some package conflicts that npm struggles to deal with. Yarn's package resolution manages it though.
 `yarn dev` - run's local server. This app is setup to run in Contentful so you need to setup a contentful custom app.
 
 To use in a content model create a field of type "JSON object" not "Rich Text" (the Rich Text field has built in validation that is incompatible with the new data properties added by this package). Contentful doesn't allow you to change the type of an existing field. If you want to use this on an existing content model you can add a new field of "JSON object" and copy paste your content from your old rich text field to this new field. The content should copy over cleanly.
 
+# Rendering on the frontend
 Once your data is in contentful you will need to update your frontend renderer to look for the new data properties.
-The INLINES type from contentful doesn't include the new inline asset so you will need to create your own ENUM to add it 
+The `INLINES` type from contentful doesn't include the new inline asset so you will need to create your own enum to add it 
 Assuming your using `@contentful/rich-text-react-renderer`:
 
 ```
@@ -87,7 +88,24 @@ return documentToReactComponents(props.content, {
   });
 
 ```
-## Known issues
+
+# Creating a plugin
+Adding a new editor functionality requres 3 steps
+1. create plugin
+1. create toolbar UI button (if needed)
+1. add node type
+1. update validation schema
+
+In version v38, PlateJS changed their syntax for adding plugins to be more object oriented. PlateJS [v36](https://v36.platejs.org/) is the documentation that aligns best with the version of PlateJS Contentful uses.
+
+## Types extension
+Contentful defines all rich text node types in 2 enums in `@contentful/rich-text-types`: `BLOCKS` or `INLINES`. Adding text alignment and an "open in new tab" option for hyperlinks didn't require new types but inline assets did. I added a new inline type "embedded-asset-inline". I couldn't find a good way to extend `INLINES` so I wrote a new one and updated all imports to reference it. If you add new node types you may have to do the same.
+
+## Validation extension
+If your modifications to the rich text editor includes adding or updating properties in the rich text json you will need to modify the data structure schema (`src/components/rich-text/schemas/generated` copied from copied from `@contentful/rich-text-types/dist/schemas`) so field validation passes. For example the text alignment plugin requires a new data property "align". 
+
+# Misc.
+## Known issues with this repo
 * No app configuration yet so you can't enable/disable rich text features like you can with the default one.
 * floating assets can stack in the editor if they are too close to each other.
 * dragging floating assets around leaves empty paragraphs behind.

@@ -89,14 +89,21 @@ return documentToReactComponents(props.content, {
 
 ```
 
-# Creating a plugin
+# Adding new functionality
 Adding a new editor functionality requres 3 steps
 1. create plugin
-1. create toolbar UI button (if needed)
+1. create toolbar UI if needed
 1. add node type
 1. update validation schema
 
 In version v38, PlateJS changed their syntax for adding plugins to be more object oriented. PlateJS [v36](https://v36.platejs.org/) is the documentation that aligns best with the version of PlateJS Contentful uses.
+
+## Create a plugin
+Add a new directory to `src/components/rich-text/plugins` and create a `createMyPlugin.ts` file. If your plugin requires an toolbar/dialog UI you can include it here as well.
+Call your plugin setup function (`createMyPlugin()`) in `getPlugins` of `src/components/rich-text/plugins/index`.
+
+## Update Toolbar
+Import and render any new Toolbar components required for your plugin in `src/components/rich-text/Toolbar/index.ts`.
 
 ## Types extension
 Contentful defines all rich text node types in 2 enums in `@contentful/rich-text-types`: `BLOCKS` or `INLINES`. Adding text alignment and an "open in new tab" option for hyperlinks didn't require new types but inline assets did. I added a new inline type "embedded-asset-inline". I couldn't find a good way to extend `INLINES` so I wrote a new one and updated all imports to reference it. If you add new node types you may have to do the same.

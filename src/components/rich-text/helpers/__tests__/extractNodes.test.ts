@@ -1,5 +1,4 @@
-import { BLOCKS } from '@contentful/rich-text-types';
-import { INLINES } from '../../inlines';
+import { BLOCKS, INLINES } from '../../rich-text-types/src';
 import { createEditor as createSlateEditor } from '@udecode/plate-test-utils';
 
 import { Element, PlateEditor, Path } from '../../internal/types';

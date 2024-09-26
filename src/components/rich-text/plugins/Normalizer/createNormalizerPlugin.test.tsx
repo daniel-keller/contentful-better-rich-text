@@ -1,6 +1,5 @@
 /** @jsx jsx */
-import { BLOCKS } from '@contentful/rich-text-types';
-import { INLINES } from '../../inlines';
+import { INLINES, BLOCKS } from '../../rich-text-types/src';
 
 import { transformWrapIn } from '../../helpers/transformers';
 import { jsx, createTestEditor, mockPlugin, assertOutput } from '../../test-utils';

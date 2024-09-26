@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { MARKS } from '@contentful/rich-text-types';
+import { MARKS } from '../../rich-text-types/src';
 import { createStrikethroughPlugin as createDefaultStrikethroughPlugin } from '@udecode/plate-basic-marks';
 import { css } from 'emotion';
 

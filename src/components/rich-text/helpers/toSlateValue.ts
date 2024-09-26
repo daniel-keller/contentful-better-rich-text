@@ -1,5 +1,6 @@
+import * as Contentful from '@contentful/rich-text-types';
 import { toSlatejsDocument } from '@contentful/contentful-slatejs-adapter';
-import { EMPTY_DOCUMENT, Document } from '@contentful/rich-text-types';
+import { EMPTY_DOCUMENT, Document } from '../rich-text-types/src';
 
 import schema from '../constants/Schema';
 import { Element, Text, Node } from '../internal/types';
@@ -46,7 +47,7 @@ export const toSlateValue = (doc?: Document): Element[] => {
   };
 
   const slateDoc = toSlatejsDocument({
-    document: doc && hasContent(doc) ? doc : EMPTY_DOCUMENT,
+    document: (doc && hasContent(doc) ? doc: EMPTY_DOCUMENT) as Contentful.Document,
     // TODO: get rid of schema, https://github.com/contentful/field-editors/pull/1065#discussion_r826723248
     schema,
   });

@@ -1,5 +1,5 @@
 import { FieldAppSDK } from '@contentful/app-sdk';
-import { INLINES } from '../../inlines';
+import { INLINES } from '../../rich-text-types/src';
 
 import { PlatePlugin } from '../../internal';
 import { getWithEmbeddedEntryInlineEvents } from '../shared/EmbeddedInlineUtil';

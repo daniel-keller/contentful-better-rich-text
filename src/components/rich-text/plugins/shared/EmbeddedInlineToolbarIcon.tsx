@@ -5,13 +5,13 @@ import { Flex, Icon, Menu } from '@contentful/f36-components';
 import { EmbeddedEntryInlineIcon, AssetIcon } from '@contentful/f36-icons';
 
 import tokens from '@contentful/f36-tokens';
-import { INLINES } from '../../inlines';
+import { INLINES } from '../../rich-text-types/src';
 import { css } from 'emotion';
 
 import { useContentfulEditor } from '../../ContentfulEditorProvider';
 import { moveToTheNextChar } from '../../helpers/editor';
 import { useSdkContext } from '../../SdkProvider';
-import { selectEntityAndInsert, selectResourceEntityAndInsert } from './EmbeddedInlineUtil';
+import { selectEntityAndInsert, selectResourceEntityAndInsert } from '../shared/EmbeddedInlineUtil';
 import { ResourceNewBadge } from './ResourceNewBadge';
 
 const styles = {

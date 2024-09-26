@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import { FieldAppSDK } from '@contentful/app-sdk';
-import { INLINES } from '../../inlines';
+import { INLINES } from '../../rich-text-types/src';
 import { AnyObject, HotkeyPlugin } from '@udecode/plate-common';
 import isHotkey from 'is-hotkey';
 

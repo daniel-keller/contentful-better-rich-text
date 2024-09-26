@@ -1,4 +1,4 @@
-import { MARKS } from '@contentful/rich-text-types';
+import { MARKS } from '../../rich-text-types/src';
 import isHotkey from 'is-hotkey';
 
 import { isMarkActive } from '../../internal/queries';

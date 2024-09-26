@@ -1,5 +1,5 @@
 import { FieldAppSDK } from '@contentful/app-sdk';
-import { BLOCKS, TEXT_CONTAINERS } from '@contentful/rich-text-types';
+import { TEXT_CONTAINERS, BLOCKS } from '../../rich-text-types/src';
 import { HotkeyPlugin } from '@udecode/plate-common';
 import isHotkey from 'is-hotkey';
 

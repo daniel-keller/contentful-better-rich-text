@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import tokens from '@contentful/f36-tokens';
-import { BLOCKS } from '@contentful/rich-text-types';
+import { BLOCKS } from '../../../rich-text-types/src';
 import { css, cx } from 'emotion';
 import * as Slate from 'slate-react';
 import { AlignValuesType } from '../../Align';
@@ -9,7 +9,6 @@ import { AlignValuesType } from '../../Align';
 interface RenderAlignableElementProps extends Slate.RenderElementProps {
   element: Slate.RenderElementProps['element'] & {data?: {align: AlignValuesType}}
 }
-
 
 function createHeading(Tag: any, block: BLOCKS) {
   return function Heading(props: RenderAlignableElementProps) {

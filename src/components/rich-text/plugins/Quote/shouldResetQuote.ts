@@ -1,4 +1,4 @@
-import { BLOCKS, TEXT_CONTAINERS } from '@contentful/rich-text-types';
+import { BLOCKS, TEXT_CONTAINERS } from '../../rich-text-types/src';
 import { isLastChild, hasSingleChild } from '@udecode/plate-common';
 
 import { getAboveNode, getBlockAbove, isAncestorEmpty } from '../../internal/queries';

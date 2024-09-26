@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import { FormatUnderlinedIcon } from '@contentful/f36-icons';
-import { MARKS } from '@contentful/rich-text-types';
+import { MARKS } from '../../rich-text-types/src';
 import { createUnderlinePlugin as createDefaultUnderlinePlugin } from '@udecode/plate-basic-marks';
 
 import { someHtmlElement } from '../../internal/queries';

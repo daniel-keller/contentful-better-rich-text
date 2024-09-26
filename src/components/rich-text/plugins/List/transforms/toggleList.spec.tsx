@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { BLOCKS } from '@contentful/rich-text-types';
+import { BLOCKS } from '../../../rich-text-types/src';
 import { PlateEditor } from '@udecode/plate-common';
 
 import { assertOutput, jsx, createTestEditor } from '../../../test-utils';

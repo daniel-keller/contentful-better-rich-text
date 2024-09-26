@@ -1,4 +1,4 @@
-import { BLOCKS, CONTAINERS } from '@contentful/rich-text-types';
+import { BLOCKS, CONTAINERS } from '../../rich-text-types/src';
 
 import { transformLift, transformUnwrap } from '../../helpers/transformers';
 import { PlatePlugin } from '../../internal/types';

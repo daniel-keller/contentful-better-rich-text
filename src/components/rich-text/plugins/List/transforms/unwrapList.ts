@@ -2,7 +2,7 @@
  * Credit: Modified version of Plate's list plugin
  * See: https://github.com/udecode/plate/blob/main/packages/nodes/list
  */
-import { BLOCKS } from '@contentful/rich-text-types';
+import { BLOCKS } from '../../../rich-text-types/src';
 
 import { withoutNormalizing } from '../../../internal';
 import { getNodeEntries, isElement } from '../../../internal/queries';

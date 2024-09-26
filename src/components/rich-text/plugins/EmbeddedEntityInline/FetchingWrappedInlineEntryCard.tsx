@@ -9,7 +9,7 @@ import {
   useEntityLoader,
 } from '@contentful/field-editor-reference';
 import { Entry, FieldAppSDK, entityHelpers } from '@contentful/field-editor-shared';
-import { INLINES } from '../../inlines';
+import { INLINES } from '../../rich-text-types/src';
 import { css } from 'emotion';
 
 const { getEntryTitle, getEntityStatus } = entityHelpers;

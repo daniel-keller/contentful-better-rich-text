@@ -1,6 +1,6 @@
 import { KeyboardEvent } from 'react';
 
-import { BLOCKS } from '@contentful/rich-text-types';
+import { BLOCKS } from '../../rich-text-types/src';
 import { getTableEntries, onKeyDownTable as defaultKeyDownTable } from '@udecode/plate-table';
 
 import { insertEmptyParagraph } from '../../helpers/editor';

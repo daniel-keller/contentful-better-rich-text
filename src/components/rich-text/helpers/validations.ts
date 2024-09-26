@@ -1,6 +1,6 @@
 import { FieldAppSDK } from '@contentful/app-sdk';
-import { BLOCKS, TOP_LEVEL_BLOCKS } from '@contentful/rich-text-types';
-import { INLINES } from '../inlines';
+import { TOP_LEVEL_BLOCKS } from '@contentful/rich-text-types';
+import { BLOCKS, INLINES } from '../rich-text-types/src';
 
 import find from 'lodash/find';
 import flow from 'lodash/flow';

@@ -1,4 +1,4 @@
-import { BLOCKS } from '@contentful/rich-text-types';
+import { BLOCKS } from '../../rich-text-types/src';
 import { createTrailingBlockPlugin } from '@udecode/plate-trailing-block';
 
 import { PlatePlugin } from '../../internal/types';

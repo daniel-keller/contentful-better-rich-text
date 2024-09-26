@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import { HorizontalRuleIcon } from '@contentful/f36-icons';
 import tokens from '@contentful/f36-tokens';
-import { BLOCKS } from '@contentful/rich-text-types';
+import { BLOCKS } from '../../rich-text-types/src';
 import { css, cx } from 'emotion';
 import * as Slate from 'slate-react';
 

@@ -1,7 +1,7 @@
 /**
  * https://platejs.org/docs/typescript
  */
-import { MARKS } from '@contentful/rich-text-types';
+import { MARKS } from '../../rich-text-types/src';
 import * as p from '@udecode/plate-common';
 import * as s from 'slate';
 import * as sr from 'slate-react';

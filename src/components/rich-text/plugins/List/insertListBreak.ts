@@ -4,7 +4,7 @@
  *
  * See: https://github.com/udecode/plate/blob/main/packages/nodes/list
  */
-import { BLOCKS, TEXT_CONTAINERS } from '@contentful/rich-text-types';
+import { BLOCKS, TEXT_CONTAINERS } from '../../rich-text-types/src';
 import {
   ELEMENT_DEFAULT,
   getPluginType,

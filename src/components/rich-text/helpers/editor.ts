@@ -1,6 +1,5 @@
 import { Link } from '@contentful/field-editor-reference';
-import { BLOCKS } from '@contentful/rich-text-types';
-import { INLINES } from '../inlines';
+import { BLOCKS, INLINES } from '../rich-text-types/src';
 
 import { focusEditor } from '../internal/misc';
 import {

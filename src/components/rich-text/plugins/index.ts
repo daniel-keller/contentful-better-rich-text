@@ -23,6 +23,7 @@ import { createHrPlugin } from './Hr';
 import { createHyperlinkPlugin } from './Hyperlink';
 import { createListPlugin } from './List';
 import { createMarksPlugin } from './Marks';
+import { createColumnPlugin } from './Column';
 import { createNormalizerPlugin } from './Normalizer';
 import { createParagraphPlugin } from './Paragraph';
 import { createPasteHTMLPlugin } from './PasteHTML';
@@ -57,6 +58,7 @@ export const getPlugins = (
   createHrPlugin(),
   createHeadingPlugin(),
   createQuotePlugin(),
+  createColumnPlugin(),
   createTablePlugin(),
   createAlignPlugin(),
   createEmbeddedEntryBlockPlugin(sdk),

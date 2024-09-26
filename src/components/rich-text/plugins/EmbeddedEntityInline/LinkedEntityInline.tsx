@@ -14,7 +14,7 @@ import { LinkedInlineWrapper } from '../shared/LinkedInlineWrapper';
 import { FetchingWrappedInlineEntryCard } from './FetchingWrappedInlineEntryCard';
 import { FetchingWrappedAssetCard } from '../shared/FetchingWrappedAssetCard';
 import { css } from 'emotion';
-import { ButtonGroup, Stack, ToggleButton } from '@contentful/f36-components';
+import { ButtonGroup, Stack, IconButton, ToggleButton } from '@contentful/f36-components';
 import { ArrowBackwardIcon, ArrowForwardIcon } from '@contentful/f36-icons';
 
 type LinkedEntityInlineProps = {
@@ -29,11 +29,18 @@ type LinkedEntityInlineProps = {
 };
 
 const styles = {
+  inlineAssetAnchor: css({
+    minHeight: 0,
+    marginRight: '2px',
+    marginLeft: '2px',
+  }),
   inlineAssetRight: css({
+    marginTop: '10px',
     paddingLeft: '10px',
     float: 'right'
   }),
   inlineAssetLeft: css({
+    marginTop: '10px',
     paddingRight: '10px',
     float: 'left'
   }),
@@ -120,32 +127,54 @@ export function LinkedEntityInline(props: LinkedEntityInlineProps) {
       </LinkedInlineWrapper>
   }
 
+  function selectImage() {
+    if (!editor && !isSelected) return;
+    const pathToElement = findNodePath(editor, element);
+    if (pathToElement) {
+      editor.select(pathToElement);
+    }
+  }
+
   // Inline Asset
   return (
-    <Stack className={
-      element.data.float == 'left'
-        ? styles.inlineAssetLeft
-        : styles.inlineAssetRight
-    } flexDirection="column" spacing='spacingXs'>
-      <ToggleFloatButtons onToggle={toggleFloat} float={element.data.float ?? 'right'}/>
-      <LinkedInlineWrapper
-        attributes={attributes}
-        card={
-          <FetchingWrappedAssetCard
-            sdk={sdk}
-            assetId={entityId}
-            locale={sdk.field.locale}
-            isDisabled={isDisabled}
-            isSelected={isSelected}
-            onRemove={handleRemoveClick}
-            onEdit={handleEditClick}
-            onEntityFetchComplete={onEntityFetchComplete}
-          />
-        }
-        link={element.data.target}
-      >
-        {children}
-      </LinkedInlineWrapper>
-    </Stack>
+    <>
+        <IconButton
+          size="small"
+          variant="secondary"
+          className={styles.inlineAssetAnchor}
+          aria-label="inline asset location"
+          onClick={selectImage}
+          icon={
+            <svg width="18px" height="18px" viewBox="0 0 24 24" fill="none">
+              <path d="M12 8.4C13.4912 8.4 14.7 7.19117 14.7 5.7C14.7 4.20883 13.4912 3 12 3C10.5088 3 9.3 4.20883 9.3 5.7C9.3 7.19117 10.5088 8.4 12 8.4ZM12 8.4V20.9999M12 20.9999C9.61305 20.9999 7.32387 20.0518 5.63604 18.364C3.94821 16.6761 3 14.3869 3 12H5M12 20.9999C14.3869 20.9999 16.6761 20.0518 18.364 18.364C20.0518 16.6761 21 14.3869 21 12H19" stroke="#000000" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          }
+        />
+      <Stack className={
+        element.data.float == 'left'
+          ? styles.inlineAssetLeft
+          : styles.inlineAssetRight
+      } flexDirection="column" spacing='spacingXs'>
+        <ToggleFloatButtons onToggle={toggleFloat} float={element.data.float ?? 'right'}/>
+        <LinkedInlineWrapper
+          attributes={attributes}
+          card={
+            <FetchingWrappedAssetCard
+              sdk={sdk}
+              assetId={entityId}
+              locale={sdk.field.locale}
+              isDisabled={isDisabled}
+              isSelected={isSelected}
+              onRemove={handleRemoveClick}
+              onEdit={handleEditClick}
+              onEntityFetchComplete={onEntityFetchComplete}
+            />
+          }
+          link={element.data.target}
+        >
+          {children}
+        </LinkedInlineWrapper>
+      </Stack>
+    </>
   );
 }

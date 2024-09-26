@@ -1,4 +1,4 @@
-import { BLOCKS, CONTAINERS } from '@contentful/rich-text-types';
+import { BLOCKS, CONTAINERS } from '../../rich-text-types/src';
 import {
   createTablePlugin as createDefaultTablePlugin,
   ELEMENT_TABLE,

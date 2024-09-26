@@ -1,4 +1,4 @@
-import { BLOCKS } from '@contentful/rich-text-types';
+import { BLOCKS } from '../../rich-text-types/src';
 
 import { insertEmptyParagraph } from '../../helpers/editor';
 import { getText, isElement } from '../../internal/queries';

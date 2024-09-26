@@ -12,6 +12,7 @@ import { useLinkTracking } from '../links-tracking';
 import { FetchingWrappedAssetCard } from '../shared/FetchingWrappedAssetCard';
 import { FetchingWrappedEntryCard } from '../shared/FetchingWrappedEntryCard';
 import { LinkedBlockWrapper } from '../shared/LinkedBlockWrapper';
+import { css } from 'emotion';
 
 type LinkedEntityBlockProps = {
   element: Element & {
@@ -22,6 +23,14 @@ type LinkedEntityBlockProps = {
   attributes: Pick<RenderElementProps, 'attributes'>;
   children: React.ReactNode;
 };
+
+const wrapper = css`
+  text-align: center;
+  border-radius: 5px;
+  background-image: linear-gradient(45deg, #f2f2f2 25%, #e3e3e3 25%, #e3e3e3 50%, #f2f2f2 50%, #f2f2f2 75%, #e3e3e3 75%, #e3e3e3 100%);
+  background-size: 20.00px 20.00px;
+  padding: 15px;
+`;
 
 export function LinkedEntityBlock(props: LinkedEntityBlockProps) {
   const { attributes, children, element } = props;
@@ -47,7 +56,7 @@ export function LinkedEntityBlock(props: LinkedEntityBlockProps) {
     <LinkedBlockWrapper
       attributes={attributes}
       card={
-        <>
+        <div className={wrapper}>
           {entityType === 'Entry' && (
             <FetchingWrappedEntryCard
               sdk={sdk}
@@ -72,7 +81,7 @@ export function LinkedEntityBlock(props: LinkedEntityBlockProps) {
               onEntityFetchComplete={onEntityFetchComplete}
             />
           )}
-        </>
+        </div>
       }
       link={element.data.target}
     >

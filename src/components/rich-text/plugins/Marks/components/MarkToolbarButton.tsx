@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import { Menu } from '@contentful/f36-components';
 import tokens from '@contentful/f36-tokens';
-import { MARKS } from '@contentful/rich-text-types';
+import { MARKS } from '../../../rich-text-types/src';
 import { css, cx } from 'emotion';
 
 import { useContentfulEditor } from '../../../ContentfulEditorProvider';

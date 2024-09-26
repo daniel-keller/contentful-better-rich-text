@@ -1,4 +1,4 @@
-import { INLINES } from '../../inlines';
+import { INLINES } from '../../rich-text-types/src';
 import { createSelectOnBackspacePlugin as createDefaultSelectPlugin } from '@udecode/plate-select';
 
 import { PlatePlugin } from '../../internal/types';

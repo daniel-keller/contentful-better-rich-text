@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import tokens from '@contentful/f36-tokens';
-import { TableHeaderCell } from '@contentful/rich-text-types';
+import { TableHeaderCell } from '../../../rich-text-types/src';
 import { css } from 'emotion';
 import { useSelected } from 'slate-react';
 

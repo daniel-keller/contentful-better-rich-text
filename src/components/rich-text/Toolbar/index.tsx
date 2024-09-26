@@ -4,8 +4,7 @@ import { FieldAppSDK } from '@contentful/app-sdk';
 import { Flex, IconButton, Menu } from '@contentful/f36-components';
 import { MoreHorizontalIcon } from '@contentful/f36-icons';
 import tokens from '@contentful/f36-tokens';
-import { BLOCKS, MARKS } from '@contentful/rich-text-types';
-import { INLINES } from '../inlines';
+import { BLOCKS, INLINES, MARKS } from '../rich-text-types/src';
 import { css } from 'emotion';
 
 import { useContentfulEditor } from '../ContentfulEditorProvider';
@@ -32,6 +31,7 @@ import {
 import { ToolbarUnderlineButton } from '../plugins/Marks/Underline';
 import { ToolbarQuoteButton } from '../plugins/Quote';
 import { ToolbarTableButton } from '../plugins/Table';
+import { ToolbarColumnButton } from '../plugins/Column';
 import { useSdkContext } from '../SdkProvider';
 import { ButtonRedo } from './components/ButtonRedo';
 import { ButtonUndo } from './components/ButtonUndo';
@@ -194,6 +194,9 @@ const Toolbar = ({ isDisabled }: ToolbarProps) => {
         )}
         {isNodeTypeEnabled(sdk.field, BLOCKS.HR) && (
           <ToolbarHrButton isDisabled={isDisabled || !canInsertBlocks} />
+        )}
+        {isNodeTypeEnabled(sdk.field, BLOCKS.COLUMN) && (
+          <ToolbarColumnButton isDisabled={shouldDisableTables} />
         )}
         {isNodeTypeEnabled(sdk.field, BLOCKS.TABLE) && (
           <ToolbarTableButton isDisabled={shouldDisableTables} />

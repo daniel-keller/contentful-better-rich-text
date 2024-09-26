@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import tokens from '@contentful/f36-tokens';
-import { BLOCKS } from '@contentful/rich-text-types';
+import { BLOCKS } from '../../rich-text-types/src';
 import { css } from 'emotion';
 
 import { RenderElementProps } from '../../internal/types';

@@ -1,4 +1,4 @@
-import { BLOCKS, TEXT_CONTAINERS } from '@contentful/rich-text-types';
+import { BLOCKS, TEXT_CONTAINERS } from '../rich-text-types/src';
 
 import { getNodeEntries } from '../internal/queries';
 import { PlateEditor, Node, Path, NodeMatch } from '../internal/types';

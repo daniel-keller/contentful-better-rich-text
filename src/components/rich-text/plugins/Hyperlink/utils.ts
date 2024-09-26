@@ -4,7 +4,7 @@ import { isAncestorEmpty } from '@udecode/plate-common';
 import { getText } from '../../internal/queries';
 import { NodeEntry } from '../../internal/types';
 import { PlateEditor } from '../../internal/types';
-import { truncateTitle } from '../shared/utils';
+import { truncateTitle } from '../../plugins/shared/utils';
 import { FetchedEntityData } from './useEntityInfo';
 
 export const hasText = (editor: PlateEditor, entry: NodeEntry) => {

@@ -1,4 +1,4 @@
-import { BLOCKS, LIST_ITEM_BLOCKS } from '@contentful/rich-text-types';
+import { BLOCKS, LIST_ITEM_BLOCKS } from '../../rich-text-types/src';
 import {
   createListPlugin as createPlateListPlugin,
   ELEMENT_LI,

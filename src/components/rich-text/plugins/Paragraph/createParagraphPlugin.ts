@@ -1,4 +1,4 @@
-import { BLOCKS } from '@contentful/rich-text-types';
+import { BLOCKS } from '../../rich-text-types/src';
 import { createParagraphPlugin as createDefaultParagraphPlugin } from '@udecode/plate-paragraph';
 import isHotkey from 'is-hotkey';
 

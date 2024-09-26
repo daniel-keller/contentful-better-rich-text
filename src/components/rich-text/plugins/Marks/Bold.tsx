@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import { FormatBoldIcon } from '@contentful/f36-icons';
-import { MARKS } from '@contentful/rich-text-types';
+import { MARKS } from '../../rich-text-types/src';
 import { createBoldPlugin as createDefaultBoldPlugin } from '@udecode/plate-basic-marks';
 import { css } from 'emotion';
 

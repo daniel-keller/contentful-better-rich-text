@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 
-import { BLOCKS } from '@contentful/rich-text-types';
-import { INLINES } from '../../inlines';
+import { BLOCKS, INLINES } from '../../rich-text-types/src';
 
 import { useContentfulEditor } from '../../ContentfulEditorProvider';
 import { isLinkActive } from '../../helpers/editor';

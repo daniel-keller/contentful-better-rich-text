@@ -1,4 +1,4 @@
-import { BLOCKS } from '@contentful/rich-text-types';
+import { BLOCKS } from '../../../rich-text-types/src';
 import { getEmptyRowNode } from '@udecode/plate-table';
 
 import { getAboveNode, someNode, getStartPoint, getNextPath } from '../../../internal/queries';

@@ -1,8 +1,7 @@
 import { useState } from 'react';
 
 import { FieldAppSDK } from '@contentful/app-sdk';
-import { BLOCKS } from '@contentful/rich-text-types';
-import { INLINES } from '../../inlines';
+import { BLOCKS, INLINES } from '../../rich-text-types/src';
 
 import { isNodeTypeSelected } from '../../helpers/editor';
 import { isNodeTypeEnabled } from '../../helpers/validations';

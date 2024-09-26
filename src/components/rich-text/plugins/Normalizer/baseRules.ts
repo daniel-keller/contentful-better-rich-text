@@ -1,4 +1,4 @@
-import { BLOCKS, TEXT_CONTAINERS } from '@contentful/rich-text-types';
+import { BLOCKS, TEXT_CONTAINERS } from '../../rich-text-types/src';
 
 import { INLINE_TYPES } from '../../helpers/editor';
 import { transformWrapIn } from '../../helpers/transformers';

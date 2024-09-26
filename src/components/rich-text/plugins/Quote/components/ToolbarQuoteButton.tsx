@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import { QuoteIcon } from '@contentful/f36-icons';
-import { BLOCKS } from '@contentful/rich-text-types';
+import { BLOCKS } from '../../../rich-text-types/src';
 
 import { useContentfulEditor } from '../../../ContentfulEditorProvider';
 import { isBlockSelected, focus } from '../../../helpers/editor';

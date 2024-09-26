@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { MARKS } from '@contentful/rich-text-types';
+import { MARKS } from '../../rich-text-types/src';
 import { configure, render, waitFor } from '@testing-library/react';
 import { Plate } from '@udecode/plate-common';
 

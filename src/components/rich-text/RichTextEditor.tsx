@@ -3,7 +3,7 @@ import * as React from 'react';
 import { FieldAppSDK } from '@contentful/app-sdk';
 import { EntityProvider } from '@contentful/field-editor-reference';
 import { FieldConnector } from '@contentful/field-editor-shared';
-import * as Contentful from '@contentful/rich-text-types';
+import * as Contentful from './rich-text-types/src';
 import { PlateContent, Plate, PlatePlugin } from '@udecode/plate-common';
 import { css, cx } from 'emotion';
 import deepEquals from 'fast-deep-equal';
@@ -111,7 +111,7 @@ export const ConnectedRichTextEditor = (props: ConnectedRichTextProps) => {
 const RichTextEditor = (props: RichTextProps) => {
   const { sdk, isInitiallyDisabled, onAction, restrictedMarks, onChange, ...otherProps } = props;
   const isEmptyValue = React.useCallback(
-    (value: any) => !value || deepEquals(value, Contentful.EMPTY_DOCUMENT),
+    (value) => !value || deepEquals(value, Contentful.EMPTY_DOCUMENT),
     []
   );
   React.useEffect(() => {
@@ -120,10 +120,6 @@ const RichTextEditor = (props: RichTextProps) => {
     }
     return sdk.field.onValueChanged(onChange);
   }, [onChange, sdk.field]);
-
-  React.useEffect(() => {
-    props.sdk.window.startAutoResizer();
-  });
 
   const id = getContentfulEditorId(props.sdk);
   return (

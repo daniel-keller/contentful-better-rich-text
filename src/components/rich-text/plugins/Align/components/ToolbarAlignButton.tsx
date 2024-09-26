@@ -19,7 +19,10 @@ const styles = {
   menuButton: css({
     height: '18px',
     paddingLeft: '5px',
-    paddingRight: '5px'
+    paddingRight: '5px',
+    span: {
+      height: '18px'
+    }
   }),
   itemButton: css({
     minWidth: 'unset',
@@ -34,17 +37,17 @@ const styles = {
 const LABELS: Record<AlignValuesType, React.ReactNode> = {
   left: (
     <svg width='18px' height='18px' viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M4 4H20M4 12H20M4 20H20M4 8H14M4 16H14" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M4 4H20M4 12H20M4 20H20M4 8H14M4 16H14" stroke="#000000" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
     </svg>
   ),
   center: (
     <svg width='18px' height='18px' viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M4 4H20M4 12H20M4 20H20M7 8H17M7 16H17" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M4 4H20M4 12H20M4 20H20M7 8H17M7 16H17" stroke="#000000" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
     </svg>
   ),
   right: (
     <svg width='18px' height='18px' viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M4 4H20M4 12H20M4 20H20M10 8H20M10 16H20" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M4 4H20M4 12H20M4 20H20M10 8H20M10 16H20" stroke="#000000" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
     </svg>
   )
 };
@@ -136,7 +139,7 @@ export function ToolbarAlignButton(props: ToolbarAlignButtonProps) {
             disabled={props.isDisabled}
             className={styles.itemButton}
           >
-            {LABELS[float as AlignValuesType]}
+            {LABELS[float]}
           </Menu.Item>
         )}
       </Menu.List>

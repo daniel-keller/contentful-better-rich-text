@@ -5,9 +5,9 @@ import { InlineEntryCard, MenuItem, Text } from '@contentful/f36-components';
 import { ResourceLink, ResourceInfo, useResource } from '@contentful/field-editor-reference';
 import { entityHelpers } from '@contentful/field-editor-shared';
 import { FieldAppSDK } from '@contentful/field-editor-shared';
-import { INLINES } from '../../inlines';
+import { INLINES } from '../../rich-text-types/src';
 
-import { truncateTitle } from '../shared/utils';
+import { truncateTitle } from '../../plugins/shared/utils';
 
 const { getEntryTitle, getEntityStatus } = entityHelpers;
 

@@ -1,4 +1,4 @@
-import { BLOCKS, HEADINGS } from '@contentful/rich-text-types';
+import { BLOCKS, HEADINGS } from '../../rich-text-types/src';
 import isHotkey from 'is-hotkey';
 
 import { isBlockSelected, isInlineOrText, toggleElement } from '../../helpers/editor';
@@ -57,12 +57,12 @@ export const createHeadingPlugin = (): PlatePlugin => ({
             end: true,
             start: true,
 
-            // Exclude headings inside lists as it interferes with the list's
+            // Exclude headings inside lists and columns as it interferes with the list's
             // insertBreak implementation
             filter: ([, path]) =>
               !getAboveNode(editor, {
                 at: path,
-                match: { type: BLOCKS.LIST_ITEM },
+                match: { type: [BLOCKS.LIST_ITEM, BLOCKS.COLUMN] },
               }) && !isMarkActive(editor, COMMAND_PROMPT),
           },
         },

@@ -1,4 +1,5 @@
-import { BLOCKS } from '@contentful/rich-text-types';
+import { BLOCKS } from '../../rich-text-types/src';
+
 import { PlatePlugin, PlateEditor } from '../../internal/types';
 import { isBlock } from '@udecode/plate-common';
 import { setNodes, unsetNodes } from '../../internal/transforms';
@@ -20,11 +21,9 @@ const validTypes = [
 
 export const setAlign = (editor: PlateEditor, align: AlignValuesType) => {
 
-  const match = (n: any) => {
+  const match = (n) => {
     return isBlock(editor, n) && !!validTypes && validTypes.includes(n.type as BLOCKS);
   };
-
-  console.log({...match});
 
   if (align === defaultAlignValue) {
     // TODO: this will remove all data on node but 'data.align' doesn't work?

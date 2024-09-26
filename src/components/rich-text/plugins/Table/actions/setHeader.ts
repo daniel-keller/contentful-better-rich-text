@@ -1,4 +1,4 @@
-import { BLOCKS } from '@contentful/rich-text-types';
+import { BLOCKS } from '../../../rich-text-types/src';
 
 import { getAboveNode, getChildren } from '../../../internal/queries';
 import { setNodes } from '../../../internal/transforms';

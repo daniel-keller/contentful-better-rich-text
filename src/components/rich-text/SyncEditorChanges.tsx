@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import * as Contentful from '@contentful/rich-text-types';
+import * as Contentful from './rich-text-types/src';
 import { usePlateActions } from '@udecode/plate-common';
 import equal from 'fast-deep-equal';
 

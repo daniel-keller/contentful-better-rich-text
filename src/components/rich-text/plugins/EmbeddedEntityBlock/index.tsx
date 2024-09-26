@@ -1,6 +1,5 @@
 import { FieldAppSDK } from '@contentful/app-sdk';
-import { BLOCKS } from '@contentful/rich-text-types';
-
+import { BLOCKS } from '../../rich-text-types/src';
 import { PlatePlugin } from '../../internal';
 import { getWithEmbeddedBlockEvents } from '../shared/EmbeddedBlockUtil';
 import { LinkedEntityBlock } from './LinkedEntityBlock';

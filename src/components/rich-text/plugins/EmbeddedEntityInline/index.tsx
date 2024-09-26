@@ -1,6 +1,6 @@
 
 import { FieldAppSDK } from '@contentful/app-sdk';
-import { INLINES } from '../../inlines';
+import { INLINES } from '../../rich-text-types/src';
 
 import { PlatePlugin } from '../../internal';
 import { getWithEmbeddedEntryInlineEvents } from '../shared/EmbeddedInlineUtil';
@@ -17,6 +17,7 @@ const createEmbeddedEntityPlugin =
     key: nodeType,
     type: nodeType,
     isElement: true,
+    isInline: true,
     isVoid: true,
     component: LinkedEntityInline,
     options: { hotkey },

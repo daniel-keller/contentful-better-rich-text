@@ -1,5 +1,5 @@
 import { FieldAppSDK } from '@contentful/app-sdk';
-import { INLINES } from '../../inlines';
+import { INLINES } from '../../rich-text-types/src';
 import { HotkeyPlugin } from '@udecode/plate-common';
 import isHotkey from 'is-hotkey';
 
@@ -11,7 +11,7 @@ import { focus } from '../../helpers/editor';
 import { watchCurrentSlide } from '../../helpers/sdkNavigatorSlideIn';
 import { insertNodes, select } from '../../internal/transforms';
 import { KeyboardHandler } from '../../internal/types';
-import { TrackingPluginActions } from '../Tracking';
+import { TrackingPluginActions } from '../../plugins/Tracking';
 
 export function getWithEmbeddedEntryInlineEvents(
   nodeType: INLINES.EMBEDDED_ENTRY | INLINES.EMBEDDED_ASSET | INLINES.EMBEDDED_RESOURCE,

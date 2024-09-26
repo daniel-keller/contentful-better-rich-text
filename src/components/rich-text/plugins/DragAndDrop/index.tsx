@@ -1,5 +1,4 @@
-import { BLOCKS } from '@contentful/rich-text-types';
-import { INLINES } from '../../inlines';
+import { BLOCKS, INLINES } from '../../rich-text-types/src';
 import { HistoryEditor } from 'slate-history';
 
 import { getNodeEntries } from '../../internal/queries';

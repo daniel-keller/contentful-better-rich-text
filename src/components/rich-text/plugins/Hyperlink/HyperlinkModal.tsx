@@ -16,8 +16,7 @@ import tokens from '@contentful/f36-tokens';
 import { EntityProvider } from '@contentful/field-editor-reference';
 import { Link } from '@contentful/field-editor-reference';
 import { ModalDialogLauncher, FieldAppSDK } from '@contentful/field-editor-shared';
-import { ResourceLink } from '@contentful/rich-text-types';
-import { INLINES } from '../../inlines';
+import { INLINES, ResourceLink } from '../../rich-text-types/src';
 import { css } from 'emotion';
 
 import { getNodeEntryFromSelection, insertLink, LINK_TYPES, focus } from '../../helpers/editor';
@@ -28,7 +27,7 @@ import { withoutNormalizing } from '../../internal';
 import { getText, isEditorReadOnly } from '../../internal/queries';
 import { select } from '../../internal/transforms';
 import { PlateEditor, Path } from '../../internal/types';
-import { TrackingPluginActions } from '../Tracking';
+import { TrackingPluginActions } from '../../plugins/Tracking';
 import { FetchingWrappedAssetCard } from '../shared/FetchingWrappedAssetCard';
 import { FetchingWrappedEntryCard } from '../shared/FetchingWrappedEntryCard';
 import { FetchingWrappedResourceCard } from '../shared/FetchingWrappedResourceCard';

@@ -1,4 +1,4 @@
-import { INLINES } from '../../../inlines';
+import { INLINES } from '../../../rich-text-types/src';
 
 export function createInlineEntryNode(id: string) {
   return {

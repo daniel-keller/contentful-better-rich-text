@@ -1,10 +1,10 @@
 import {
   BLOCKS,
+  INLINES,
   TOP_LEVEL_BLOCKS,
   VOID_BLOCKS,
   CONTAINERS,
-} from '@contentful/rich-text-types';
-import { INLINES } from '../inlines';
+} from '../rich-text-types/src';
 
 const inlines = Object.values(INLINES).map((type) => ({ type }));
 

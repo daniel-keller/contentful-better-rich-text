@@ -13,6 +13,12 @@ export const hasAccorionAsDirectParent = (editor: PlateEditor, [, path]: NodeEnt
   return parentNode.type == BLOCKS.ACCORDION && isFirstChild(path);
 };
 
+export const accordionHasBody = (_: PlateEditor, entry: NodeEntry) => {
+  const children = getChildren(entry);
+
+  return children.length >= 2 && children[1][0]?.type == BLOCKS.ACCORDION_BODY;
+};
+
 
 export const accordionHasTitle = (_: PlateEditor, entry: NodeEntry) => {
   const children = getChildren(entry);
@@ -21,6 +27,13 @@ export const accordionHasTitle = (_: PlateEditor, entry: NodeEntry) => {
 };
 
 export const unwrapAccordion = (editor: PlateEditor, entry: NodeEntry) => {
+  const [, path] = entry;
+
+  unwrapNodes(editor, {at: path, split: false});
+};
+
+
+export const insertBody = (editor: PlateEditor, entry: NodeEntry) => {
   const [, path] = entry;
 
   unwrapNodes(editor, {at: path, split: false});

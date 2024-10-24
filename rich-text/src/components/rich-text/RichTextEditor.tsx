@@ -61,10 +61,6 @@ export const ConnectedRichTextEditor = (props: ConnectedRichTextProps) => {
     [sdk, onAction, restrictedMarks]
   );
 
-  React.useEffect(() =>
-    sdk.window.startAutoResizer()
-  , [sdk.window]);
-
   const initialValue = React.useMemo(() => {
     return normalizeInitialValue(
       {
@@ -119,6 +115,11 @@ const RichTextEditor = (props: RichTextProps) => {
     (value) => !value || deepEquals(value, Contentful.EMPTY_DOCUMENT),
     []
   );
+
+  React.useEffect(() =>
+    sdk.window.startAutoResizer()
+  , [sdk.window]);
+
   React.useEffect(() => {
     if (!onChange) {
       return;

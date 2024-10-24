@@ -11,13 +11,7 @@
           ]
         },
         "data": {
-          "type": "object",
-          "properties": {
-            "id": {
-              "type": "string"
-            }
-          },
-          "additionalProperties": false
+          "typeof": "function"
         },
         "content": {
           "maxItems": 1,

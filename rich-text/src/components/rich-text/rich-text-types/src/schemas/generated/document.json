@@ -146,6 +146,7 @@
         "table-header-cell",
         "accordion",
         "accordion-title",
+        "accordion-body",
         "asset-gallery",
         "iframe",
         "fillout"

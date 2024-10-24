@@ -40,10 +40,10 @@ export const ColumnElement = withHOC(
     }
 
     // align
-    if (align == 'center') {
-      columns.justifyContent = 'center'
-    } else if (align == 'top') {
+    if (!align || align == 'top') {
       columns.justifyContent = 'start'
+    } else if (align == 'center') {
+      columns.justifyContent = 'center'
     } else if (align == 'bottom') {
       columns.justifyContent = 'end'
     }

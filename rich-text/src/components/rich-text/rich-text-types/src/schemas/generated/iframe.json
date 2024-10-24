@@ -11,40 +11,7 @@
           ]
         },
         "data": {
-          "type": "object",
-          "properties": {
-            "url": {
-              "type": "string"
-            },
-            "width": {
-              "type": "string"
-            },
-            "height": {
-              "type": "object",
-              "properties": {
-                "xs": {
-                  "type": "string"
-                },
-                "sm": {
-                  "type": "string"
-                },
-                "md": {
-                  "type": "string"
-                },
-                "lg": {
-                  "type": "string"
-                },
-                "xl": {
-                  "type": "string"
-                }
-              },
-              "additionalProperties": false
-            }
-          },
-          "additionalProperties": false,
-          "required": [
-            "url"
-          ]
+          "typeof": "function"
         },
         "content": {
           "maxItems": 1,

@@ -1,31 +1,22 @@
 {
-  "$ref": "#/definitions/Accordion",
+  "$ref": "#/definitions/AccordionBody",
   "definitions": {
-    "Accordion": {
+    "AccordionBody": {
       "type": "object",
       "properties": {
         "nodeType": {
           "type": "string",
           "enum": [
-            "accordion"
+            "accordion-body"
           ]
         },
         "data": {
           "typeof": "function"
         },
         "content": {
-          "minItems": 2,
-          "maxItems": 2,
           "type": "array",
           "items": {
-            "anyOf": [
-              {
-                "$ref": "#/definitions/AccordionTitle"
-              },
-              {
-                "$ref": "#/definitions/AccordionBody"
-              }
-            ]
+            "$ref": "#/definitions/Body"
           }
         }
       },
@@ -36,13 +27,47 @@
         "nodeType"
       ]
     },
-    "AccordionTitle": {
+    "Body": {
+      "anyOf": [
+        {
+          "$ref": "#/definitions/Paragraph"
+        },
+        {
+          "$ref": "#/definitions/Hr"
+        },
+        {
+          "$ref": "#/definitions/Heading1"
+        },
+        {
+          "$ref": "#/definitions/Heading2"
+        },
+        {
+          "$ref": "#/definitions/Heading3"
+        },
+        {
+          "$ref": "#/definitions/Heading4"
+        },
+        {
+          "$ref": "#/definitions/Heading5"
+        },
+        {
+          "$ref": "#/definitions/Heading6"
+        },
+        {
+          "$ref": "#/definitions/OrderedList"
+        },
+        {
+          "$ref": "#/definitions/UnorderedList"
+        }
+      ]
+    },
+    "Paragraph": {
       "type": "object",
       "properties": {
         "nodeType": {
           "type": "string",
           "enum": [
-            "accordion-title"
+            "paragraph"
           ]
         },
         "data": {
@@ -157,99 +182,6 @@
     "NodeData": {
       "additionalProperties": true,
       "type": "object"
-    },
-    "AccordionBody": {
-      "type": "object",
-      "properties": {
-        "nodeType": {
-          "type": "string",
-          "enum": [
-            "accordion-body"
-          ]
-        },
-        "data": {
-          "typeof": "function"
-        },
-        "content": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/Body"
-          }
-        }
-      },
-      "additionalProperties": false,
-      "required": [
-        "content",
-        "data",
-        "nodeType"
-      ]
-    },
-    "Body": {
-      "anyOf": [
-        {
-          "$ref": "#/definitions/Paragraph"
-        },
-        {
-          "$ref": "#/definitions/Hr"
-        },
-        {
-          "$ref": "#/definitions/Heading1"
-        },
-        {
-          "$ref": "#/definitions/Heading2"
-        },
-        {
-          "$ref": "#/definitions/Heading3"
-        },
-        {
-          "$ref": "#/definitions/Heading4"
-        },
-        {
-          "$ref": "#/definitions/Heading5"
-        },
-        {
-          "$ref": "#/definitions/Heading6"
-        },
-        {
-          "$ref": "#/definitions/OrderedList"
-        },
-        {
-          "$ref": "#/definitions/UnorderedList"
-        }
-      ]
-    },
-    "Paragraph": {
-      "type": "object",
-      "properties": {
-        "nodeType": {
-          "type": "string",
-          "enum": [
-            "paragraph"
-          ]
-        },
-        "data": {
-          "typeof": "function"
-        },
-        "content": {
-          "type": "array",
-          "items": {
-            "anyOf": [
-              {
-                "$ref": "#/definitions/Inline"
-              },
-              {
-                "$ref": "#/definitions/Text"
-              }
-            ]
-          }
-        }
-      },
-      "additionalProperties": false,
-      "required": [
-        "content",
-        "data",
-        "nodeType"
-      ]
     },
     "Hr": {
       "type": "object",

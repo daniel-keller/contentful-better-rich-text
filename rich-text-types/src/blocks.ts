@@ -33,6 +33,7 @@ export enum BLOCKS {
 
   ACCORDION = 'accordion',
   ACCORDION_TITLE = 'accordion-title',
+  ACCORDION_BODY = 'accordion-body',
 
   ASSET_GALLERY = 'asset-gallery',
   IFRAME = 'iframe',

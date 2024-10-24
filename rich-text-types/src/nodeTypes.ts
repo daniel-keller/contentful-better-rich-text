@@ -6,6 +6,7 @@ type EmptyNodeData = {};
 // BLOCKS
 
 type Caption = Paragraph | Hr | Heading1 | Heading2 | Heading3 | Heading4  | Heading5 | Heading6;
+type Body = Paragraph | Hr | OrderedList | UnorderedList | Heading1 | Heading2 | Heading3 | Heading4  | Heading5 | Heading6;
 
 // Heading
 export interface Heading1 extends Block {
@@ -291,14 +292,22 @@ export interface AccordionTitle extends Block {
   content: Array<Inline | Text>
 }
 
+export interface AccordionBody extends Block {
+  nodeType: BLOCKS.ACCORDION_BODY;
+  data: EmptyNodeData;
+
+  content: Array<Body>
+}
+
 export interface Accordion extends Block {
   nodeType: BLOCKS.ACCORDION;
   data: EmptyNodeData;
 
   /**
-   * @minItems 1
+   * @minItems 2
+   * @maxItems 2
    */
-  content: Array<AccordionTitle | Paragraph>;
+  content: Array<AccordionTitle | AccordionBody>;
 }
 
 export interface AssetGallery extends Block {

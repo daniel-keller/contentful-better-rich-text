@@ -1,5 +1,5 @@
 import { useMemo } from 'react';
-import { locations } from '@contentful/app-sdk';
+import { FieldAppSDK, locations } from '@contentful/app-sdk';
 import ConfigScreen from './locations/ConfigScreen';
 import Field from './locations/Field';
 import { useSDK } from '@contentful/react-apps-toolkit';
@@ -11,6 +11,7 @@ const ComponentLocationSettings = {
 
 const App = () => {
   const sdk = useSDK();
+  (sdk as FieldAppSDK).window.startAutoResizer();
 
   const Component = useMemo(() => {
     for (const [location, component] of Object.entries(ComponentLocationSettings)) {

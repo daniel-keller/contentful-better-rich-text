@@ -2,7 +2,7 @@ import { FieldAppSDK } from '@contentful/app-sdk';
 import { PlateProps } from '@udecode/plate-common';
 
 import { PlatePlugin } from '../internal/types';
-import { createAccordionPlugin, createAccordionTitlePlugin } from './Accordion';
+import { createAccordionPlugin, createAccordionTitlePlugin, createAccordionBodyPlugin } from './Accordion';
 import { createAlignPlugin } from './Align';
 import { createAssetGalleryPlugin } from './AssetGallery';
 import { createSoftBreakPlugin, createExitBreakPlugin, createResetNodePlugin } from './Break';
@@ -64,6 +64,7 @@ export const getPlugins = (
   createQuotePlugin(),
   createAccordionPlugin(),
   createAccordionTitlePlugin(),
+  createAccordionBodyPlugin(),
   createColumnPlugin(),
   createTablePlugin(),
   createAlignPlugin(),

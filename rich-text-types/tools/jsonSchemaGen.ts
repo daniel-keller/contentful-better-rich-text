@@ -9,7 +9,7 @@ const settings: TJS.PartialArgs = {
   topRef: true,
   noExtraProps: true,
   required: true,
-  useTypeOfKeyword: true,
+  typeOfKeyword: true,
   constAsEnum: true,
 };
 
@@ -65,6 +65,7 @@ const blockSymbolsMap = new Map([
   // Custom
   [BLOCKS.ACCORDION, 'Accordion'],
   [BLOCKS.ACCORDION_TITLE, 'AccordionTitle'],
+  [BLOCKS.ACCORDION_BODY, 'AccordionBody'],
   [BLOCKS.COLUMN_GROUP, 'ColumnGroup'],
   [BLOCKS.COLUMN, 'Column'],
   [BLOCKS.FILLOUT_FORM, 'FilloutForm'],

@@ -11,28 +11,7 @@
           ]
         },
         "data": {
-          "type": "object",
-          "properties": {
-            "layout": {
-              "type": "array",
-              "items": {
-                "type": "number"
-              }
-            },
-            "gap": {
-              "type": "string"
-            },
-            "style": {
-              "type": "string"
-            },
-            "align": {
-              "type": "string"
-            }
-          },
-          "additionalProperties": false,
-          "required": [
-            "layout"
-          ]
+          "typeof": "function"
         },
         "content": {
           "minItems": 1,
@@ -59,8 +38,7 @@
           ]
         },
         "data": {
-          "type": "object",
-          "properties": {}
+          "typeof": "function"
         },
         "content": {
           "minItems": 1,
@@ -87,8 +65,7 @@
           ]
         },
         "data": {
-          "type": "object",
-          "properties": {}
+          "typeof": "function"
         },
         "content": {
           "type": "array",

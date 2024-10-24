@@ -1,8 +1,18 @@
 import { isBlockSelected } from '../../helpers/editor';
-import { withoutNormalizing, insertNodes, unwrapNodes, isElement } from '../../internal';
-import { PlateEditor } from '../../internal/types';
+import {
+  withoutNormalizing,
+  insertNodes,
+  unwrapNodes,
+  isElement,
+  PlateEditor
+} from '../../internal';
 import { BLOCKS } from '../../rich-text-types/src';
 import { TrackingPluginActions } from '../Tracking';
+
+export const defaultAccordionBody = {
+  type: BLOCKS.ACCORDION_BODY,
+  children: [{ type: BLOCKS.PARAGRAPH, children: [{ text: '' }] }],
+}
 
 export function toggleAccordion(
   editor: PlateEditor,
@@ -32,10 +42,7 @@ export function toggleAccordion(
             type: BLOCKS.ACCORDION_TITLE,
             children: [{ text: 'Untitled' }],
           },
-          {
-            type: BLOCKS.PARAGRAPH,
-            children: [{ text: '' }],
-          }
+          {...defaultAccordionBody}
         ],
       };
 

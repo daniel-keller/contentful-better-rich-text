@@ -29,7 +29,7 @@ interface AccordionElementProps {
 }
 
 export default function Accordion(props: AccordionElementProps) {
-  const { element } = props;
+  const { element, attributes } = props;
   const { defaultOpen } = element.data;
 
   const editor = useContentfulEditor();
@@ -43,21 +43,21 @@ export default function Accordion(props: AccordionElementProps) {
   /**
    * Delete Accordion
    */
-    const deleteAccordion = React.useCallback(() => {
-      const path = findNodePath(editor, element as any);
-      removeNodes(editor, {at: path});
-    }, [editor, element]);
+  const deleteAccordion = React.useCallback(() => {
+    const path = findNodePath(editor, element as any);
+    removeNodes(editor, {at: path});
+  }, [editor, element]);
 
-    /**
-     * set open by default
-     */
-    const setDefaultOpen = React.useCallback((e) => {
-      setIsDefaultOpen(e.target.checked);
-      const d = e.target.checked ? true : undefined;
+  /**
+   * set open by default
+   */
+  const setDefaultOpen = React.useCallback((e) => {
+    setIsDefaultOpen(e.target.checked);
+    const d = e.target.checked ? true : undefined;
 
-      const path = findNodePath(editor, element as any);
-      setNodes(editor, {data: {...element.data, defaultOpen: d }}, { at: path});
-    }, [editor, element]);
+    const path = findNodePath(editor, element as any);
+    setNodes(editor, {data: {...element.data, defaultOpen: d }}, { at: path});
+  }, [editor, element]);
 
 
   const accordion = css({
@@ -70,8 +70,8 @@ export default function Accordion(props: AccordionElementProps) {
   });
 
   return (
-    <div {...props.attributes} className={accordion}>
-      <Stack flex='row' justifyContent='space-between'>
+    <div {...attributes} className={accordion}>
+      <Stack flex='row' justifyContent='space-between' contentEditable={false}>
         <WidgetTitle title='Accordion'/>
         <Stack flex='row'>
           <Switch

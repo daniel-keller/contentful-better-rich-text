@@ -301,7 +301,9 @@ export interface AccordionBody extends Block {
 
 export interface Accordion extends Block {
   nodeType: BLOCKS.ACCORDION;
-  data: EmptyNodeData;
+  data: {
+    defaultOpen?: boolean;
+  };
 
   /**
    * @minItems 2

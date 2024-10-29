@@ -1,7 +1,7 @@
 install using `cd rich-text; yarn install`
 run `cd rich-text; yarn run start`
 
-If you change slate node types you will need to re-build the valiation schema in `rich-text-types` then copy/paste the source into `rich-text/rich-text-types`. There are better ways to do this but we are unstaffed and we'll cross that bridge after it collapses.
+If you change slate node types you will need to re-build the valiation schema in `rich-text-types` then copy/paste the source into `rich-text/rich-text-types`. There are better ways to do this but we are understaffed and we'll cross that bridge after it collapses.
 
 `cd rich-text-types; yarn install; yarn run generate-json-schema;` 
 
@@ -42,11 +42,6 @@ The following changes are stored in the Plate/Slate JSON through new data proper
   ]
 }
 ```
-
-## TODO
-* Add validation
-* Add saving
-* Add captions to Inline and Embedded Assets
 
 # Setup
 `yarn install` - Contentful's field editors have a some package conflicts that npm struggles to deal with. Yarn's package resolution manages it though.
@@ -123,7 +118,6 @@ If your modifications to the rich text editor includes adding or updating proper
 ## Known issues with this repo
 * No app configuration yet so you can't enable/disable rich text features like you can with the default one.
 * floating assets can stack in the editor if they are too close to each other.
-* dragging floating assets around leaves empty paragraphs behind.
 * No idea how well the align text feature will work along side RTL languages like Hebrew or Arabic.
 * Changing the Heading/Paragraph format undoes the alignment. Alignment needs to then be reselected.
 

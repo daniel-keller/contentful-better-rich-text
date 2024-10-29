@@ -153,12 +153,7 @@ export default function AssetGallery(props: AssetGalleryElementProps) {
   return (
     <div {...attributes} className={gallery} contentEditable={false}>
       <div>
-        <Stack flex='row' justifyContent='space-between'>
-          <WidgetTitle title='Image Gallery'/>
-          <Button size="small" variant="transparent" onClick={deleteGallery}>
-            <DeleteIcon variant="negative" />
-          </Button>
-        </Stack>
+        <WidgetTitle title='Image Gallery' onDelete={deleteGallery}/>
         <Form>
           {/* Title */}
           <TextInput

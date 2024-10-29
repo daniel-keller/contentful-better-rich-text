@@ -53,7 +53,7 @@ export default function Accordion(props: AccordionElementProps) {
    */
   const setDefaultOpen = React.useCallback((e) => {
     setIsDefaultOpen(e.target.checked);
-    const d = e.target.checked ? true : undefined;
+    const d = e.target.checked ? true : false;
 
     const path = findNodePath(editor, element as any);
     setNodes(editor, {data: {...element.data, defaultOpen: d }}, { at: path});

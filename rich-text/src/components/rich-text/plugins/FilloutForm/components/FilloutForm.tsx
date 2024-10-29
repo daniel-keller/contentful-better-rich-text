@@ -11,6 +11,7 @@ import {
   RenderElementProps,
   findNodePath,
   setNodes,
+  removeNodes,
 } from '../../../internal';
 import { WidgetTitle } from '../../shared/WidgetTitle';
 import { useSelected } from 'slate-react';
@@ -34,7 +35,7 @@ export default function FilloutForm(props: FilloutFormElementProps) {
 
 
   /**
-   * Change is Width
+   * Change is form id
    */
   const changeId = React.useCallback((e) => {
     setId(e.target.value);
@@ -43,6 +44,15 @@ export default function FilloutForm(props: FilloutFormElementProps) {
 
     const path = findNodePath(editor, element);
     setNodes(editor, {data: data}, { at: path});
+  }, [editor, element]);
+
+
+  /**
+   * Delete Form
+   */
+  const deleteForm = React.useCallback(() => {
+    const path = findNodePath(editor, element);
+    removeNodes(editor, {at: path});
   }, [editor, element]);
 
   const gallery = css({
@@ -56,7 +66,7 @@ export default function FilloutForm(props: FilloutFormElementProps) {
   return (
     <div {...attributes} className={gallery} contentEditable={false}>
       <div>
-        <WidgetTitle title='Fillout Form'/>
+        <WidgetTitle title='Fillout Form' onDelete={deleteForm}/>
         <Form>
           <FormControl>
             <FormControl.Label isRequired>Form ID</FormControl.Label>

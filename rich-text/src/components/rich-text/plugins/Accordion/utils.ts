@@ -30,8 +30,6 @@ export const hasBodyAsDirectSybling = (editor: PlateEditor, entry: NodeEntry) =>
   const [, path] = entry;
   const [parent] = (getParentNode(editor, path) ?? []) as NodeEntry;
 
-  console.log(parent.children, parent.children?.[1]?.type);
-
   if (parent?.children && Array.isArray(parent.children)) {
     return parent.children.length >= 2 && parent.children?.[1]?.type == BLOCKS.ACCORDION_BODY;
   }

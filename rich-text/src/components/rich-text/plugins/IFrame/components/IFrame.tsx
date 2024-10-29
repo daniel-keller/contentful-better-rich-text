@@ -10,6 +10,7 @@ import {
   Element,
   RenderElementProps,
   findNodePath,
+  removeNodes,
   setNodes,
 } from '../../../internal';
 import { WidgetTitle } from '../../shared/WidgetTitle';
@@ -77,6 +78,13 @@ export default function IFrame(props: IFrameElementProps) {
     return Object.values(set).every(v => v === undefined) ? undefined : set;
   };
 
+  /**
+   * Delete IFrame
+   */
+  const deleteIFrame = React.useCallback(() => {
+    const path = findNodePath(editor, element);
+    removeNodes(editor, {at: path});
+  }, [editor, element]);
 
   /**
    * Change is Width
@@ -179,7 +187,7 @@ export default function IFrame(props: IFrameElementProps) {
   return (
     <div {...attributes} className={gallery} contentEditable={false}>
       <div>
-        <WidgetTitle title='iFrame'/>
+        <WidgetTitle title='iFrame' onDelete={deleteIFrame}/>
         <Form>
           <Stack flexDirection='column' alignItems='start' justifyContent='stretch'>
             <FormControl className={input}>

@@ -49,7 +49,7 @@ export function Quote(props: QuoteElementProps) {
 
   return (
     <blockquote {...attributes} className={quote}>
-      <div>
+      <div contentEditable={false}>
         <svg xmlns="http://www.w3.org/2000/svg" width="22" height="20" viewBox="0 0 44 39" fill="none">
           <path d="M18.24 0.119995L12.12 19.56H19.44V38.88H0V19.56L10.2 0.119995H18.24ZM36.6 19.56H43.92V38.88H24.48V19.56L34.68 0.119995H42.72L36.6 19.56Z" fill="#000" fillOpacity="0.5"/>
         </svg>
@@ -65,7 +65,7 @@ export function Quote(props: QuoteElementProps) {
         />
       </Form>
 
-      <div className={right}>
+      <div className={right} contentEditable={false}>
         <svg xmlns="http://www.w3.org/2000/svg" width="22" height="20" viewBox="0 0 44 39" fill="none">
           <path d="M25.76 39L31.88 19.56L24.56 19.56V0.239998H44L44 19.56L33.8 39H25.76ZM7.4 19.56L0.079998 19.56L0.079998 0.239998L19.52 0.239998V19.56L9.32 39H1.28L7.4 19.56Z" fill="#000" fillOpacity="0.5"/>
         </svg>

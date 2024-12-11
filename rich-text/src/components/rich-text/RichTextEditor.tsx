@@ -143,12 +143,99 @@ const RichTextEditor = (props: RichTextProps) => {
           sdk={sdk}
           onAction={onAction}
           isDisabled={disabled}
-          onChange={setValue}
+          onChange={(doc: Contentful.Document) => {
+            setValue(doc);
+
+            // To maintain references features in Contentful
+            // we need to add entries and assets referenced in the json to
+            // referenced fields (two reference field is needed used for all custom JSON fields).
+            if (!sdk.entry.fields.richTextReferencesAssets) {
+              throw Error(`Using the custom rich text editor requires the additional
+                hidden field richTextReferencesAssets be created in this content type`);
+            }
+
+            if (!sdk.entry.fields.richTextReferencesEntries)  {
+              throw Error(`Using the custom rich text editor requires the additional
+                hidden field richTextReferencesEntries be created in this content type`);
+            }
+
+            let assetReferences: SysLink[] = [];
+            let entryReferences: SysLink[] = [];
+
+            // Gather all references in custom JSON fields in this same entry
+            for (const fieldName in sdk.entry.fields) {
+              if (Object.prototype.hasOwnProperty.call(sdk.entry.fields, fieldName)) {
+                const field = sdk.entry.fields[fieldName];
+
+                // If field is the current or is not a json object ignore it or it doesn't support this locale
+                if (fieldName != sdk.field.id && field.type == 'Object' && field.locales.includes(sdk.field.locale)) {
+                  assetReferences = assetReferences.concat(findSysLink(field.getValue(sdk.field.locale), 'Asset'));
+                  entryReferences = entryReferences.concat(findSysLink(field.getValue(sdk.field.locale), 'Entry'));
+                }
+              }
+            }
+
+            // Do the same for the current field content
+            assetReferences = assetReferences.concat(findSysLink(doc.content, 'Asset'));
+            entryReferences = entryReferences.concat(findSysLink(doc.content, 'Entry'));
+
+            // Store the references
+            sdk.entry.fields.richTextReferencesAssets?.setValue(
+              deduplicateSysLinks(assetReferences), sdk.field.locale
+            );
+
+            sdk.entry.fields.richTextReferencesEntries?.setValue(
+              deduplicateSysLinks(entryReferences), sdk.field.locale
+            );
+          }}
           restrictedMarks={restrictedMarks}
         />
       )}
     </FieldConnector>
   );
 };
+
+/**
+ * Search json to find assets and entries
+ * @param jsonObj
+ * @param linkType
+ * @param results
+ * @returns
+ */
+type SysLink = {
+  sys: {
+    id: string;
+    type: string;
+    linkType: string;
+  };
+};
+
+function findSysLink(jsonObj: any, linkType: 'Asset' | 'Entry', results: SysLink[] = []): SysLink[] {
+  // Check if the current object has the required structure
+  if (jsonObj?.sys?.type === "Link" && jsonObj?.sys?.linkType === linkType) {
+    results.push(jsonObj as SysLink);
+  }
+
+  // Recursively search through the properties of the current object
+  for (const key in jsonObj) {
+    if (jsonObj.hasOwnProperty(key) && typeof jsonObj[key] === 'object') {
+      findSysLink(jsonObj[key], linkType, results);
+    }
+  }
+
+  return results;
+}
+
+/**
+ * Remove duplicates from a list of System Links
+ * @param links
+ * @returns
+ */
+function deduplicateSysLinks (links: SysLink[]) {
+  return links.filter((value, index, self) =>
+    index === self.findIndex((t) => (t.sys.id === value.sys.id))
+  )
+}
+
 
 export default RichTextEditor;

@@ -28,6 +28,7 @@ type UrlHyperlinkProps = {
 
 /**
  * Given Hex code caluculate text color of white or black (ratio of 4.3)
+ * TODO: This calculation doesn't seem right
  * @returns
  */
 function getContrastTextColor(hex) {
@@ -74,6 +75,7 @@ export default function WrappedLinkButton(props: UrlHyperlinkProps) {
     config.backgroundColor = color;
     config.borderColor = color;
     config.color = getContrastTextColor(color);
+    console.log(getContrastTextColor(color));
   }
 
   // styles
@@ -97,6 +99,10 @@ export default function WrappedLinkButton(props: UrlHyperlinkProps) {
     config.background = 'none';
     config.border = 'none';
     config.color = color;
+  }
+  if ((!variant || variant == 'contained') && !color) {
+    config.backgroundColor = '#caccd1';
+    config[':hover'] = {'backgroundColor': '#bbbdc1'};
   }
 
   const styles = css(config);

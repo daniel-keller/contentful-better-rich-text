@@ -45,13 +45,14 @@ export const EmbedEntityWidget = ({ isDisabled, canInsertBlocks, restrictedBlock
           onClose={onCloseEntityDropdown}
         />
       )}
-      {blockResourceEmbedEnabled && (
+      {/* 12/6/2024 resources disabled b/c we don't need it and it causes errors */}
+      {/* {blockResourceEmbedEnabled && (
         <EmbeddedBlockToolbarIcon
           isDisabled={!!isDisabled}
           nodeType={BLOCKS.EMBEDDED_RESOURCE}
           onClose={onCloseEntityDropdown}
         />
-      )}
+      )} */}
       {inlineEntryEmbedEnabled && (
         <EmbeddedInlineToolbarIcon
           nodeType={INLINES.EMBEDDED_ENTRY}
@@ -59,13 +60,14 @@ export const EmbedEntityWidget = ({ isDisabled, canInsertBlocks, restrictedBlock
           onClose={onCloseEntityDropdown}
         />
       )}
-      {inlineResourceEmbedEnabled && (
+      {/* 12/6/2024 resources disabled b/c we don't need it and it causes errors */}
+      {/* {inlineResourceEmbedEnabled && (
         <EmbeddedInlineToolbarIcon
           nodeType={INLINES.EMBEDDED_RESOURCE}
           isDisabled={!!isDisabled || isLinkActive(editor)}
           onClose={onCloseEntityDropdown}
         />
-      )}
+      )} */}
       {blockAssetEmbedEnabled && (
         <EmbeddedBlockToolbarIcon
           isDisabled={!!isDisabled}
@@ -83,11 +85,12 @@ export const EmbedEntityWidget = ({ isDisabled, canInsertBlocks, restrictedBlock
     </>
   );
 
+  {/* 12/6/2024 resources disabled b/c we don't need it and it causes errors */}
   const showEmbedButton =
     blockEntryEmbedEnabled ||
-    blockResourceEmbedEnabled ||
+    // blockResourceEmbedEnabled ||
     inlineEntryEmbedEnabled ||
-    inlineResourceEmbedEnabled ||
+    // inlineResourceEmbedEnabled ||
     blockAssetEmbedEnabled ||
     inlineAssetEmbedEnabled;
 

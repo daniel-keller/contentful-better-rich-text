@@ -84,8 +84,9 @@ const LINK_TYPE_SELECTION_VALUES = {
 };
 
 export function HyperlinkModal(props: HyperlinkModalProps) {
+  {/* 12/6/2024 resources disabled b/c we don't need it and it causes errors */}
   const enabledLinkTypes = LINK_TYPES.filter((nodeType) =>
-    isNodeTypeEnabled(props.sdk.field, nodeType)
+    nodeType !== INLINES.RESOURCE_HYPERLINK && isNodeTypeEnabled(props.sdk.field, nodeType)
   );
   const [defaultLinkType] = enabledLinkTypes;
   const [linkText, setLinkText] = React.useState(props.linkText ?? '');

@@ -28,7 +28,7 @@ export const ColumnElement = withHOC(
     const { width, style, align } = useElement<TStyledColumnElement>();
 
     // style
-    if (!style || style == 'text') {
+    if (!style || style == 'none') {
       columns.border = '1px dashed darkgray !important';
       columns.backgroundColor = 'unset';
     } else if (style == 'outlined') {

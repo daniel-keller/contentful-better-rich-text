@@ -143,11 +143,17 @@ const Toolbar = ({ isDisabled, restrictedBlocks }: ToolbarProps) => {
 
   const shouldShowDropdown = boldItalicUnderlineAvailable && dropdownItemsAvailable;
 
-  const visibleIframe = isNodeTypeEnabled(sdk.field, BLOCKS.IFRAME, restrictedBlocks);
-  const visibleFillout = isNodeTypeEnabled(sdk.field, BLOCKS.FILLOUT_FORM, restrictedBlocks);
-  const visibleColumn = isNodeTypeEnabled(sdk.field, BLOCKS.COLUMN, restrictedBlocks);
+  // 12/6/24 Disable these for now as they are handled by Entities
+  const visibleIframe = false;
+  // const visibleIframe = isNodeTypeEnabled(sdk.field, BLOCKS.IFRAME, restrictedBlocks);
+  const visibleFillout = false; // remove for now
+  // const visibleFillout = isNodeTypeEnabled(sdk.field, BLOCKS.FILLOUT_FORM, restrictedBlocks);
+  const visibleColumn = false; // remove for now
+  // const visibleColumn = isNodeTypeEnabled(sdk.field, BLOCKS.COLUMN, restrictedBlocks);
+  const visibleAssetGallery = false;
+  // const visibleAssetGallery = isNodeTypeEnabled(sdk.field, BLOCKS.ASSET_GALLERY, restrictedBlocks);
   const visibleAccordion = isNodeTypeEnabled(sdk.field, BLOCKS.ACCORDION, restrictedBlocks);
-  const visibleAssetGallery = isNodeTypeEnabled(sdk.field, BLOCKS.ASSET_GALLERY, restrictedBlocks);
+
 
   return (
     <Flex
